@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<f:view>
+	
+			<h:form>
+			<br/>
+			<br/>
+			<p:growl id="growl" showDetail="true" sticky="true" />  
+			<p:panel header="Growl" style="width:255px; height:300px; margin-left:40%; margin-top:5%">  
+			<h:panelGrid colums="3">
+			
+			<p:outputLabel for="ad" value="TC kimlik numaraniniz:"/>   
+            <p:inputText id="ad" value="#{hastanebean.hastane.tc}" required="true" style="width:210px"/> 
+         
+            
+			<p:outputLabel for="sifre" value="SİFRE:"/>   
+            <p:inputText id="sifre" value="#{hastanebean.hastane.sifre}" required="true" style="width:210px"/> 
+            <br/>
+			<h:commandButton style="margin-left:30%" value="KAYIT OL" update="growl"  action="#{hastanebean.kaydol}" ></h:commandButton>
+			<br/>
+			<h:commandButton style="margin-left:30%" value="GIRIS YAP" update="growl"  actionListener="#{hastanebean.giris}" ></h:commandButton>
+			</h:panelGrid>
+			
+			 </p:panel> 
+			
+			</h:form>
+		
+		</f:view>
+</body> 
+</html>

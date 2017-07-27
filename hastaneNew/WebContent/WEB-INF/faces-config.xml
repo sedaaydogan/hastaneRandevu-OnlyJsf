@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <managed-bean>
+  <managed-bean-name>hastanebean</managed-bean-name>
+  <managed-bean-class>Hastanebean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <navigation-rule>
+  <from-view-id>/index.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{hastanebean.kaydol}</from-action>
+   <to-view-id>/kaydol.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>   
+ 
+ <navigation-rule>
+  <from-view-id>/kaydol.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{hastanebean.giris}</from-action>
+   <to-view-id>/giris.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>   
+ 
+ <navigation-rule>
+  <from-view-id>/giris.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{hastanebean.hesapBilgileri}</from-action>
+   <to-view-id>/hesapBilgileri.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>  
+ 
+  <navigation-rule>
+  <from-view-id>/index.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{hastanebean.giris}</from-action>
+   <to-view-id>/kaydol.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>   
+  
+  
+</faces-config>

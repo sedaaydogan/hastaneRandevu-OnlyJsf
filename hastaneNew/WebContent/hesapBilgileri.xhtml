@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+    <f:view>
+       <h:form>
+		<p:dataTable value="#{hastanebean.hastaneListesi}" var="h" style="margin-top:10%;width=200px" >
+						<f:facet name="header">ÜYELİK BİLGİLERİ</f:facet>
+						<f:facet name="footer">ÜYELİK BİLGİLERİ</f:facet>
+					<p:column>
+					<f:facet name="header">SİL</f:facet>
+					<h:commandLink action="#{hastanebean.sil()}" value="sil" >
+						<f:setPropertyActionListener value="#{h}" target="#{hastanebean.hastane}" >
+						</f:setPropertyActionListener>
+						</h:commandLink>
+					</p:column>	
+					
+					<p:column>
+						<f:facet name="header">DUZENLE</f:facet>
+						<h:commandLink action="#{hastanebean.duzenle()}" value="Duzenle" >
+						<f:setPropertyActionListener value="#{h}" target="#{hastanebean.hastane}" >
+						</f:setPropertyActionListener>
+						</h:commandLink>
+					</p:column>	
+				 	<p:column>
+				 		<f:facet name="header">AD:</f:facet>
+				 		<h:outputText value="#{h.ad}" />
+				 	</p:column>
+				 	<br/>
+				 	<p:column>
+				 		<f:facet name="header">SOYAD:</f:facet>
+				 		<h:outputText value="#{h.soyad}" />
+				 	</p:column>
+				 	<br/>
+				 	<p:column>
+				 		<f:facet name="header">sifre:</f:facet>
+				 		<h:outputText value="#{h.sifre}" />
+				 	</p:column>
+				 	<br/>
+				 	<p:column>
+				 		<f:facet name="header">tc:</f:facet>
+				 		<h:outputText value="#{h.tc}" />
+				 	</p:column>
+				 	<br/>
+				 	<p:column>
+				 		<f:facet name="header">cinsiyet:</f:facet>
+				 		<h:outputText value="#{h.cinsiyet}" />
+				 	</p:column>
+				 	
+				</p:dataTable>
+				 <p:commandButton style="margin-left:48%;margin-top:10px" value="RANDEVU GÖRÜNTÜLE !!" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+ 
+    <p:dialog  header="RANDEVUNUZ" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
+        <p:panelGrid columns="6" id="display" columnClasses="label,value">
+            <h:outputText value="İL ADI:" />
+            <h:outputText value="#{hastanebean.il}" />
+ 			
+ 			<h:outputText value="İLÇE ADI:" />
+            <h:outputText value="#{hastanebean.ilce}" />
+            
+            <h:outputText value="HASTANE ADI:" />
+            <h:outputText value="#{hastanebean.hastaneAd}" />
+            
+            <h:outputText value="KLINIK ADI:" />
+            <h:outputText value="#{hastanebean.klinik}" />
+            
+            <h:outputText value="DOKTOR ADI:" />
+            <h:outputText value="#{hastanebean.doktor}" />
+            
+            <h:outputText value="SAAT:" />
+            <h:outputText value="10:15" />
+           
+        </p:panelGrid>
+    </p:dialog>
+				
+	
+       </h:form>
+    </f:view>
+</body> 
+</html>

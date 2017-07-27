@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+<h:head>
+   
+</h:head> 
+<body>
+<f:view>
+<h:form>
+			<h:outputText value="" rendered="#{hastanebean.goster}"/>
+			<h:commandButton  action="#{hastanebean.degistir()}"  value="#{hastanebean.goster ? '9:15' : '9:15'}" />
+			<h:outputText value="#{hastanebean.goster}" style="margin-left:5px"/>
+			
+			<h:outputText value="" rendered="#{hastanebean.goster1}"/>
+			<h:commandButton  action="#{hastanebean.degistir1()}" style="margin-left:10px" value="#{hastanebean.goster1 ? '10:15' : '10:15'}" />
+			<h:outputText value="#{hastanebean.goster1}" style="margin-left:5px"/>
+			<h:outputText value="" rendered="#{hastanebean.goster2}"/>
+			<h:commandButton  action="#{hastanebean.degistir2()}" style="margin-left:10px" value="#{hastanebean.goster2 ? '11:15' : '11:15'}" />
+			<h:outputText value="#{hastanebean.goster2}" style="margin-left:5px"/>
+			<h:outputText value="" rendered="#{hastanebean.goster3}"/>
+			<h:commandButton  action="#{hastanebean.degistir3()}" style="margin-left:10px" value="#{hastanebean.goster3 ? '12:15' : '12:15'}" />
+			<h:outputText value="#{hastanebean.goster3}" style="margin-left:5px"/>
+			<h:commandButton style="margin-left:70%" value="HESAP BİLGİLERİ"  action="#{hastanebean.hesapBilgileri}" ></h:commandButton>
+			</h:form>
+	<h:form>
+     <h:panelGrid columns="3" style="margin-bottom:10px; margin:0 auto" cellpadding="5">
+        <p:outputLabel for="il" value="İL ADI:" />
+        <p:selectOneMenu id="il" value="#{hastanebean.il}" valueChangeListener="#{hastanebean.ilceYukle}"  onchange="submit()" style="width:210px">
+        	<f:selectItem  itemLabel="DIYARBAKIR" itemValue="diyarbakir" />
+            <f:selectItem itemLabel="HATAY" itemValue="hatay" />
+            <f:selectItem itemLabel="ADANA" itemValue="adana" />
+         </p:selectOneMenu>   
+         
+       <br></br>
+       <p:outputLabel value="İLÇE ADI:" />
+       <p:selectOneMenu  value="#{hastanebean.ilce}" style="width:210px">
+            <f:selectItems value="#{hastanebean.ilceListesi}"/>
+          </p:selectOneMenu>  
+          
+ 		<br></br>
+ 		<p:outputLabel value="HASTANE ADI:" />
+ 		<p:selectOneMenu  value="#{hastanebean.hastaneAd}"  style="width:210px">
+            <f:selectItems value="#{hastanebean.hastaneAdListesi}"/>
+        </p:selectOneMenu>
+        </h:panelGrid>
+        
+     <h:panelGrid columns="2" style="margin-bottom:10px;margin:0 auto" cellpadding="5">
+    
+        <p:outputLabel for="klinik" value="KLINIKLER:" />
+        <p:selectOneMenu  id="klinik" value="#{hastanebean.klinik}"  valueChangeListener="#{hastanebean.doktorYukle}"  onchange="submit()"  style="width:210px;margin-left:22px">
+            <f:selectItem itemLabel="GENEL CERRAHI" itemValue="genel cerrahi" />
+            <f:selectItem itemLabel="BEYIN CERRAHI KLINIGI" itemValue="beyin cerrahi klinigi" />
+            <f:selectItem itemLabel="DAHILIYE KLINIGI" itemValue="dahiliye klinigi" />
+        </p:selectOneMenu>  
+         
+   
+       <p:outputLabel value="DOKTOR:" />
+       <p:selectOneMenu  value="#{hastanebean.doktor}" style="width:210px;margin-left:22px">
+            <f:selectItems value="#{hastanebean.doktorListesi}"/>
+        </p:selectOneMenu> 
+       
+    </h:panelGrid>
+  
+    <p:commandButton style="margin-left:50%" value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+ 
+    <p:dialog  header="RANDEVUNUZ ALINMIŞTIR !" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
+        <p:panelGrid columns="6" id="display" columnClasses="label,value">
+            <h:outputText value="İL ADI:" />
+            <h:outputText value="#{hastanebean.il}" />
+ 			
+ 			<h:outputText value="İLÇE ADI:" />
+            <h:outputText value="#{hastanebean.ilce}" />
+            
+            <h:outputText value="HASTANE ADI:" />
+            <h:outputText value="#{hastanebean.hastaneAd}" />
+            
+            <h:outputText value="KLINIK ADI:" />
+            <h:outputText value="#{hastanebean.klinik}" />
+            
+            <h:outputText value="DOKTOR ADI:" />
+            <h:outputText value="#{hastanebean.doktor}" />
+            
+            <h:outputText value="SAAT:" />
+            <h:outputText value="10:15" />
+           
+        </p:panelGrid>
+    </p:dialog>
+				
+</h:form>
+</f:view>
+</body> 
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID=":#{hastanebean.kaydol}:#kaydol.xhtml"
+    NAME="output" PATH="/kaydol.xhtml" TARGET="rules:#kaydol.xhtml"
+    TITLE="#{hastanebean.kaydol}:[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#index.xhtml:1" NAME="item1"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID=":#{hastanebean.giris}:#kaydol.xhtml"
+    NAME="output" PATH="/kaydol.xhtml" TARGET="rules:#kaydol.xhtml"
+    TITLE="#{hastanebean.giris}:[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#kaydol.xhtml" PATH="/kaydol.xhtml"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#kaydol.xhtml:0" NAME="item"
+   PATH="/kaydol.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID=":#{hastanebean.giris}:#giris.xhtml"
+    NAME="output" PATH="/giris.xhtml" TARGET="rules:#giris.xhtml"
+    TITLE="#{hastanebean.giris}:[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#giris.xhtml" PATH="/giris.xhtml"
+  SHAPE="256,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#giris.xhtml:0" NAME="item"
+   PATH="/giris.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{hastanebean.hesapBilgileri}:#hesapBilgileri.xhtml"
+    NAME="output" PATH="/hesapBilgileri.xhtml"
+    TARGET="rules:#hesapBilgileri.xhtml"
+    TITLE="#{hastanebean.hesapBilgileri}:[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#hesapBilgileri.xhtml"
+  PATH="/hesapBilgileri.xhtml" SHAPE="464,161,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<f:view>
+			<h:form>
+			<p:growl id="growl" showDetail="true" sticky="true" />  
+			<p:panel header="Growl" style="width:250px; margin-left:40%; margin-top:5%">  
+			<h:panelGrid colums="2">
+			
+			<p:outputLabel for="ad" value="Adiniz:"/>   
+            <p:inputText id="ad" value="#{hastanebean.hastane.ad}" required="true" /> 
+         	<h:message for="ad" style="color:red"/>
+			
+			<p:outputLabel for="soyad" value="Soyadiniz:"/>   
+            <p:inputText id="soyad" value="#{hastanebean.hastane.soyad}" required="true" /> 
+         	<h:message for="soyad" style="color:red"/>
+			
+			<p:outputLabel for="cinsiyet" value="CINSIYET:"/>   
+            <p:selectOneRadio id="cinsiyet" value="#{hastanebean.hastane.cinsiyet}" required="true" > 
+            	<f:selectItem itemLabel="Bayan" itemValue="bayan"/>
+            	<f:selectItem itemLabel="bay" itemValue="bay"/>
+            </p:selectOneRadio>
+            
+			
+			<p:outputLabel for="sifre" value="SİFRE:"/>   
+            <p:inputText id="sifre" value="#{hastanebean.hastane.sifre}" required="true" /> 
+            <h:message for="sifre" style="color:red"/>
+			
+			<p:outputLabel for="tc" value="TC kimlik numaraniniz:"/>   
+            <p:inputText id="tc" value="#{hastanebean.hastane.tc}" required="true" /> 
+         	<h:message for="tc" style="color:red"/>
+			
+			<h:commandButton value="GIRIS YAP" update="growl" actionListener="#{hastanebean.kaydet}" action="#{hastanebean.giris}" ></h:commandButton>
+			</h:panelGrid>
+			
+			 </p:panel> 
+			
+			</h:form>
+		
+		</f:view>
+</body> 
+</html>
